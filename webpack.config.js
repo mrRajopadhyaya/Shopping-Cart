@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 
 const port = process.env.PORT || 3000;
 
@@ -20,29 +23,40 @@ module.exports = {
                 use:['babel-loader']
             },
             //second rule
+            // {
+            //     test:/\.css$/,
+            //     use:[
+            //         {
+            //             loader:'style-loader'
+            //         },
+            //         {
+            //             loader:'css-loader',
+            //             options:{
+            //                 modules:true,
+            //                 camelCase:true,
+            //                 sourceMap:true
+            //             }
+            //         },
+                    
+            //     ]
+            // },
+            //third rule
             {
-                test:/\.css$/,
-                use:[
-                    {
-                        loader:'style-loader'
-                    },
-                    {
-                        loader:'css-loader',
-                        options:{
-                            modules:true,
-                            camelCase:true,
-                            sourceMap:true
-                        }
-                    }
-                ]
+                test: /\.scss$/,                    // made scss
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader!sass-loader",
+                })
             }
         ]
     },
     plugins:[
         new HtmlWebpackPlugin({
-            template:'public/index.html',
-            
-        })
+            template:'./public/index.html',
+            filename:'./index.html'
+        }),
+        new ExtractTextPlugin('style.css')
+        
     ],
     devServer:{
         host:'localhost',

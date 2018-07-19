@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Carousel from '../Components/Carousel';
+import ProductList from '../Components/ProductList';
 
 class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1>this is home page</h1>
+         <Carousel/>
+          <div class="row">
+            <ProductList/>
+          </div>
       </div>
     )
   }
