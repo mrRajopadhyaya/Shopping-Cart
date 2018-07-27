@@ -9,13 +9,20 @@ const port = process.env.PORT || 3000;
 module.exports = {
     //webpack configuration
     mode: 'development',
-    entry:'./src/index.js',
+    entry:'./src/index.tsx',
     output:{
         filename:'bundle.[hash].js'
     },
     devtool:'inline-source-map',
+    resolve: {
+        extensions: ['.js', '.json', '.ts', '.tsx'],
+    },
     module:{
         rules:[
+            {
+                test: /\.(ts|tsx)$/,
+                loader: "awesome-typescript-loader"
+            },
             //first rule
             {
                 test:/\.(js)$/,

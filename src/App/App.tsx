@@ -1,22 +1,22 @@
-import React,{Component} from 'react';
-import ReactDom from 'react';
+import * as React from 'react';
+import * as ReactDom from 'react';
 import Router from './Router';
 
 import NavBar from './Components/Navbar';
 import Sidebar from './Components/Sidebar';
 import Footer from './Components/Footer';
 
-class App extends Component {
+class App extends React.Component {
     render(){
         return (
              <div className="App">
                 <NavBar/>   
-                <div class="container">
-                <div class="row">
-                  <div class="col-lg-3">
+                <div className="container">
+                <div className="row">
+                  <div className="col-lg-3">
                   <Sidebar/>
                   </div>
-                  <div class="col-lg-9">
+                  <div className="col-lg-9">
                    <Router/>
                   </div>
                 </div>

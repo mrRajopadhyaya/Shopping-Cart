@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import  * as React from 'react';
 import Carousel from '../Components/Carousel';
 import ProductList from '../Components/ProductList';
 
-class HomePage extends Component {
+class HomePage extends React.Component {
   render() {
     return (
       <div>
          <Carousel/>
-          <div class="row">
+          <div className="row">
             <ProductList/>
           </div>
       </div>
